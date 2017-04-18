@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, request, render_template, Response
 from flask_restful import Resource, Api
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
