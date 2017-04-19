@@ -12,7 +12,6 @@ export default class PostView extends Component {
   }
 
   manageNav() {
-    console.log(this.props.post.images.length > 1)
     if (this.props.post.images.length > 1) {
       return (
         <div>
@@ -46,10 +45,7 @@ export default class PostView extends Component {
           <div className="caption">
             <h3>{this.props.post.title}</h3>
             <p>{this.props.post.description}</p>
-
             {this.manageNav()}
-
-            <p><a href="#" className="btn btn-primary" role="button">Button</a> <a href="#" className="btn btn-default" role="button">Button</a></p>
           </div>
       </div>
     )
