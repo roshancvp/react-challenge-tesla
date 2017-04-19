@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions/index.js'
+import PostView from './PostView.jsx'
 
 class PostsView extends Component {
   componentWillMount() {
@@ -8,18 +9,8 @@ class PostsView extends Component {
   }
 
   renderPosts() {
-    console.log(this.props)
-    return this.props.posts.map((post) => {
-      return (
-        <div className="thumbnail" key={post.id}>
-          <img src="https://www.tesla.com/sites/default/files/blog_images/model-s-photo-gallery-01.jpg" alt="..." />
-            <div className="caption">
-              <h3>{post.title}</h3>
-              <p>{post.description}</p>
-              <p><a href="#" className="btn btn-primary" role="button">Button</a> <a href="#" className="btn btn-default" role="button">Button</a></p>
-            </div>
-        </div>
-      )
+    return this.props.posts.reverse().map((post) => {
+      return <PostView post={post} />
     })
   }
 
