@@ -140,4 +140,4 @@ api.add_resource(Posts, '/posts')
 api.add_resource(Post,  '/posts/<int:post_id>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
