@@ -16,11 +16,8 @@ class PostsView extends Component {
 
   render() {
     return (
-      <div className="row">
-        <h3>List of posts</h3>
-        <div className="col-sm-6 col-md-4">
-          {this.renderPosts()}
-        </div>
+      <div>
+        {this.renderPosts()}
       </div>
     )
   }

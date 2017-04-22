@@ -40,11 +40,11 @@ export default class PostView extends Component {
 
   render() {
     return (
-      <div className="thumbnail" key={this.props.post.id}>
-        <img src={this.props.post.images[this.state.current_image].url} alt="..." />
+      <div className="post hover" key={this.props.post.id}>
+        <img className="post-img" src={this.props.post.images[this.state.current_image].url} alt="..." />
           <div className="caption">
-            <h3>{this.props.post.title}</h3>
-            <p>{this.props.post.description}</p>
+            <div className="post-title">{this.props.post.title}</div>
+            <div className="post-desc">{this.props.post.description}</div>
             {this.manageNav()}
           </div>
       </div>

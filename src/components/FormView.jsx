@@ -44,8 +44,7 @@ class FormView extends Component {
     for (let i = 0; i < this.state.url_fields; i++ ) {
       urlFields.push(
         <div key={i} className={`form-group ${url.touched && url.invalid ? 'has-danger' : ''}`}>
-          <label>Image URL</label>
-          <input type="text" className="form-control" {...url} />
+          <input class="form-input" type="text" placeholder="Image URL" {...url} />
           <div className="text-help">
             {url.touched ? url.error : ''}
           </div>
@@ -60,20 +59,18 @@ class FormView extends Component {
     const { fields: { title, description, url}, handleSubmit } = this.props
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <h4>Create New Post</h4>
+      <form id="form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <div id="form-heading">Create New Post</div>
 
         <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-          <label>Title</label>
-          <input type="text" className="form-control" {...title} />
+          <input id="form-title" className="form-input" type="text" placeholder="Title" {...title} />
           <div className="text-help">
             {title.touched ? title.error : ''}
           </div>
         </div>
 
         <div className={`form-group ${description.touched && description.invalid ? 'has-danger' : ''}`}>
-          <label>Description</label>
-          <textarea type="text" className="form-control" {...description} />
+          <input class="form-input" type="text" placeholder="Description" {...description} />
           <div className="text-help">
             {description.touched ? description.error : ''}
           </div>
