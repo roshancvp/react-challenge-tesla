@@ -14,7 +14,6 @@ export default class PostView extends Component {
   }
 
   renderImage(images) {
-
     if (images.length > 0) {
       return (
         <div>

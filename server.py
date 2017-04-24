@@ -19,6 +19,36 @@ posts = {
         'id': 2,
         'title': 'React Challenge 2017!',
         'description': 'Challenging answers there'
+    },
+    3: {
+        'id': 3,
+        'title': 'San Francisco, California',
+        'description': 'This might be my favorite city.'
+    },
+    4: {
+        'id': 4,
+        'title': 'Silicon Valley is Back!',
+        'description': '10/10 TV Show'
+    },
+    5: {
+        'id': 5,
+        'title': 'Posts Don\'t Need an Image',
+        'description': 'But they do need a title and a description'
+    },
+    5: {
+        'id': 5,
+        'title': 'San Luis Obispo, CA',
+        'description': 'Good people, great food.'
+    },
+    6: {
+        'id': 6,
+        'title': 'Tesla Model S',
+        'description': 'Probably the coolest car ever.'
+    },
+    7: {
+        'id': 7,
+        'title': 'SLO Donut Co.',
+        'description': 'They have good doughnuts.'
     }
 }
 
@@ -54,6 +84,46 @@ images = {
       'post_id': 2,
       'url': 'https://www.tesla.com/sites/default/files/blog_images/model-s-photo-gallery-06.jpg'
   },
+  7: {
+      'id': 7,
+      'post_id': 3,
+      'url': 'https://lonelyplanetimages.imgix.net/a/g/hi/t/9cf024dfd5c0bcb2b17f4785340145ea-san-francisco.jpg?sharp=10&vib=20&w=1200'
+  },
+  8: {
+      'id': 8,
+      'post_id': 3,
+      'url': 'http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1429821784/CHARMING0415-san-francisco.jpg?itok=vmayDoQQ'
+  },
+  9: {
+      'id': 9,
+      'post_id': 4,
+      'url': 'http://media.npr.org/assets/img/2016/06/09/john-p-fleenor-courtesy-of-hbo_wide-b3f37dd44d036eeed787c822e170584d98ca00a9-s900-c85.jpg'
+  },
+  10: {
+    'id': 10,
+    'post_id': 5,
+    'url': 'https://images.trvl-media.com/media/content/shared/images/travelguides/destination/6046822/San-Luis-Obispo-31784.jpg'
+  },
+  11: {
+    'id': 11,
+    'post_id': 5,
+    'url': 'http://www.veritas.org/wp-content/uploads/2013/09/CalPoly.jpg'
+  },
+  11: {
+    'id': 11,
+    'post_id': 6,
+    'url': 'http://static.robbreport.com/sites/default/files/tesla-s-p90-02.jpg'
+  },
+  12: {
+    'id': 12,
+    'post_id': 6,
+    'url': 'https://www.teslamotors.com/sites/default/files/red-tesla-model-s.jpg'
+  },
+  13: {
+    'id': 13,
+    'post_id': 7,
+    'url': 'https://polyplaces.files.wordpress.com/2014/06/img_4205.jpg'
+  } 
 }
 
 class Image(Resource):
