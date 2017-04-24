@@ -1,4 +1,4 @@
-# react-challenge
+# react-challenge-tesla
 
 [![Build Status](https://travis-ci.com/roshancvp/react-challenge-tesla.svg?token=DzBp2wNpQSAVzWZNdfwR&branch=master)](https://travis-ci.com/roshancvp/react-challenge-tesla)
 
