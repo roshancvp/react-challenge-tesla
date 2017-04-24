@@ -20,34 +20,29 @@ class FormView extends Component {
   renderField({ input, placeholder, id, type, meta: { touched, error } }) {
     return (
       <div className={`form-group`}>
-        <input {...input} id={id} className="form-input" type="text" placeholder={placeholder} />
         {touched && <span>{error}</span>}
+        <input {...input} id={id} className="form-input" type="text" placeholder={placeholder} />
       </div>
     )
   }
 
-  renderURLFields({ fields}) {
-    console.log(this)
+  renderURLFields({ fields }) {
     return (
-      <ul>
-    <li>
-      <button type="button" onClick={() => fields.push()}>Add Hobby</button>
-    </li>
-    {fields.map((hobby, index) =>
-      <li key={index}>
-        <button
-          type="button"
-          title="Remove Hobby"
-          onClick={() => fields.remove(index)}>Remove</button>
-        <Field
-          name={hobby}
-          type="text"
-          component={this.renderField}
-          placeholder={`Hobby #${index + 1}`}/>
-      </li>
-    )}
-    {fields.error && <li className="error">{fields.error}</li>}
-  </ul>
+      <div>
+        {fields.map((hobby, index) =>
+            <Field
+              key={index}
+              name={hobby}
+              type="text"
+              component={this.renderField}
+              placeholder={`Image URL ${index + 1}`}/>
+        )}
+        <button type="button" onClick={() => fields.push()}>+ Image</button>
+        {fields.length > 0 ?
+          <button id="form-remove" type="button" title="Remove Hobby" onClick={() => fields.remove(fields.length - 1)}>- Image</button>
+          : '' }
+        {fields.error && <li className="error">{fields.error}</li>}
+      </div>
     )
   }
 
@@ -71,7 +66,7 @@ class FormView extends Component {
         <Field name="title" id="form-title" type="text" component={this.renderField} placeholder="Title" />
         <Field name="description" type="text" component={this.renderField} placeholder="Description" />
         <FieldArray name="url" component={this.renderURLFields}/>
-        <button type="submit">Post</button>
+        <button id="form-submit" type="submit">Post</button>
       </form>
     )
   }

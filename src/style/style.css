@@ -39,15 +39,23 @@ input:focus {
 }
 
 button {
-  display: inline-block;
-  float: right;
   background-color: #FFFFFF;
-  color: #4A4A4A;
+  color: #4990E2;
   border: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
+  outline: none;
+}
+
+.image {
+   position: relative;
+   width: 100%; /* for IE 6 */
+}
+
+.clickable {
+    cursor: pointer;
 }
 
 /* Header */
@@ -89,16 +97,22 @@ header {
   padding: 0px 15px 15px 15px;
 }
 
-.post-left {
-  transform: translateY(-220px);
-  width: 20px;
+.post-nav-left {
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 100%;
 }
 
-.post-right {
-  display: inline-block;
-  float: right;
-  transform: translateY(-220px);
-  width: 20px;
+.post-nav-right {
+  position: absolute;
+  top: 50%;
+  left: 469px;
+  width: 100%;
+}
+
+.post-icon {
+  width: 25px;
 }
 
 /* Form */
@@ -113,6 +127,11 @@ header {
 
 #form-heading {
   font-size: 24px;
+}
+
+#form-submit {
+  display: inline-block;
+  float: right;
 }
 
 input {
@@ -132,6 +151,10 @@ input {
 #form-title {
   font-weight: 700;
   margin-top: 15px;
+}
+
+#form-remove {
+  margin-left: 20px;
 }
 
 /* Hover */

@@ -15,8 +15,8 @@ export default class PostView extends Component {
     if (this.props.post.images.length > 1) {
       return (
         <div>
-          <a onClick={this.prevImage}>previous  </a>
-          <a onClick={this.nextImage}>next</a>
+          <div className="post-nav-left" onClick={this.prevImage}><img class="post-icon clickable" src="css/left.svg" /></div>
+          <div className="post-nav-right" onClick={this.nextImage}><img class="post-icon clickable" src="css/right.svg" /></div>
         </div>
       )
     }
@@ -41,12 +41,12 @@ export default class PostView extends Component {
   render() {
     return (
       <div className="post hover" key={this.props.post.id}>
-        <img className="post-img" src={this.props.post.images[this.state.current_image].url} alt="..." />
-          <div className="caption">
-            <div className="post-title">{this.props.post.title}</div>
-            <div className="post-desc">{this.props.post.description}</div>
-            {this.manageNav()}
-          </div>
+        <div className="image">
+          <img className="post-img" src={this.props.post.images[this.state.current_image].url} />
+          {this.manageNav()}
+        </div>
+          <div className="post-title">{this.props.post.title}</div>
+          <div className="post-desc">{this.props.post.description}</div>
       </div>
     )
   }
