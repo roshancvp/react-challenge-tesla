@@ -29,11 +29,11 @@ class FormView extends Component {
   }
 
   onSubmit(props) {
-    console.log("Submittine!")
     this.props.createPost(props)
       .then(() => {
         this.props.fetchPosts()
       })
+    this.props.reset()
   }
 
   addURLField() {
