@@ -127,6 +127,7 @@ header {
 
 #form-heading {
   font-size: 24px;
+  margin-bottom: 15px;
 }
 
 #form-submit {
@@ -150,11 +151,14 @@ input {
 
 #form-title {
   font-weight: 700;
-  margin-top: 15px;
 }
 
 #form-remove {
   margin-left: 20px;
+}
+
+.form-danger {
+  color: #FF2727
 }
 
 /* Hover */

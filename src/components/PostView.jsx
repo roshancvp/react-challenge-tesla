@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import left from '../assets/left.svg'
+import right from '../assets/right.svg'
 
 export default class PostView extends Component {
   constructor(props) {
@@ -15,8 +17,8 @@ export default class PostView extends Component {
     if (this.props.post.images.length > 1) {
       return (
         <div>
-          <div className="post-nav-left" onClick={this.prevImage}><img class="post-icon clickable" src="css/left.svg" /></div>
-          <div className="post-nav-right" onClick={this.nextImage}><img class="post-icon clickable" src="css/right.svg" /></div>
+          <div className="post-nav-left" onClick={this.prevImage}><img className="post-icon clickable" src={left} /></div>
+          <div className="post-nav-right" onClick={this.nextImage}><img className="post-icon clickable" src={right} /></div>
         </div>
       )
     }
@@ -40,7 +42,7 @@ export default class PostView extends Component {
 
   render() {
     return (
-      <div className="post hover" key={this.props.post.id}>
+      <div className="post hover">
         <div className="image">
           <img className="post-img" src={this.props.post.images[this.state.current_image].url} />
           {this.manageNav()}
