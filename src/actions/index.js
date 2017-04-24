@@ -28,18 +28,22 @@ export function createPost(props) {
     description: props.description,
   }
 
-  const image = {
-    post_id: currentId,
-    url: props.url
+  const imageRequests = []
+  for (let i = 0; i < props.url.length; i++) {
+    const image = {
+      post_id: currentId,
+      url: props.url[i]
+    }
+    console.log(image)
+    imageRequests.push(axios.post(`${ROOT_URL}/images`, image))
   }
 
-  console.log(post)
+  console.log(imageRequests)
 
   const postRequest = axios.post(`${ROOT_URL}/posts`, post)
-  const imageRequest = axios.post(`${ROOT_URL}/images`, image)
 
   return {
     type: CREATE_POST,
-    payload: Promise.all([postRequest, imageRequest])
+    payload: Promise.all([postRequest, ...imageRequests])
   }
 }
