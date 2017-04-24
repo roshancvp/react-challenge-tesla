@@ -34,5 +34,7 @@ Architecture
 Design
 ------------
 
-The UI/UX and design was the first problem I tried to solve before writing any code. I built a mockup using Sketch to understand how the user would interact with the application and how to structure the components.
+The UI/UX and design was the first problem I tried to solve before writing any code. 
+
+I built a mockup using Sketch to understand how the user would interact with the application and how to structure the components. The sketch file can be found [here](https://github.com/roshancvp/react-challenge-tesla/tree/master/design) or be previewed [here](https://sketch.cloud/s/VP98).
 
