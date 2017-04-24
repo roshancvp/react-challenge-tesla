@@ -19,3 +19,20 @@ npm start
 ```
 
 Navigate to `http://localhost:8080`
+
+Architecture
+------------
+
+### Additional Libraries
+* **redux:** I built this application aiming to build a scalable user interface. My familiarity with redux's straight-forward API and ability to easily extend it for more complex applications made redux a better choice for me over other frameworks.
+* **redux-form:** Used it for it's form validation and dynamic field features.
+* **redux-promise:** Used it as middleware to resolve promises between data flow from actions to reducers.
+* **react-router:** Again, I wanted to make adding more components and services easier to the application. I started using react-router with the intent of navigating the user to a seperate page with a full screen view of the post's image when it is clicked. Due to time constraints, I haven't implemented it yet. 
+
+![alt text](http://i.imgur.com/Bap7UUd.png "Application Architecture Diagram")
+
+Design
+------------
+
+The UI/UX and design was the first problem I tried to solve before writing any code. I built a mockup using Sketch to understand how the user would interact with the application and how to structure the components.
+
