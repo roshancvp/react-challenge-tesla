@@ -8,7 +8,7 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app)
 
-post_id_serial = 2
+post_id_serial = 7
 posts = {
     1: {
         'id': 1,
@@ -52,7 +52,7 @@ posts = {
     }
 }
 
-image_id_serial = 6
+image_id_serial = 13
 images = {
   1: {
       'id': 1,
@@ -123,7 +123,7 @@ images = {
     'id': 13,
     'post_id': 7,
     'url': 'https://polyplaces.files.wordpress.com/2014/06/img_4205.jpg'
-  } 
+  }
 }
 
 class Image(Resource):

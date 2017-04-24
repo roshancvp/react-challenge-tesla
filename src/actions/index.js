@@ -6,6 +6,10 @@ export const CREATE_POST = 'CREATE_POST'
 
 const ROOT_URL = 'http://127.0.0.1:5000'
 
+/**
+ * Fetch posts using axios.
+ * @return object with action type and a promise
+ */
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/posts`)
   return {
@@ -14,7 +18,12 @@ export function fetchPosts() {
   }
 }
 
+/**
+ * Create post using axios.
+ * @return object with action type and a promise(s)
+ */
 export function createPost(props) {
+  console.log(props)
   let currentId
   if (store.getState().posts.all[0] === null) {
     currentId = 1

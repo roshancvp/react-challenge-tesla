@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Field, FieldArray, reduxForm } from 'redux-form'
 import { createPost, fetchPosts } from '../actions/index.js'
@@ -10,6 +10,9 @@ const formData = {
   validate
 }
 
+/**
+ * FormView Component.
+ */
 class FormView extends Component {
   constructor(props) {
     super(props)
@@ -46,6 +49,10 @@ class FormView extends Component {
     )
   }
 
+  /**
+   * CREATE_POST action triggered followed by
+   * FETCH_POSTS when the previous promise resolves.
+   */
   onSubmit(props) {
     this.props.createPost(props)
       .then(() => {
@@ -53,8 +60,6 @@ class FormView extends Component {
       })
     this.props.reset()
   }
-
-
 
   render() {
     const { fields: { title, description, url}, handleSubmit } = this.props
