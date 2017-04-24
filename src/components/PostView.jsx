@@ -5,7 +5,6 @@ import right from '../assets/right.svg'
 export default class PostView extends Component {
   constructor(props) {
     super(props)
-    console.log("ppp", props)
     this.state = { current_image: 0 }
 
     this.prevImage = this.prevImage.bind(this)

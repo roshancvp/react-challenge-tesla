@@ -47,7 +47,6 @@ class FormView extends Component {
   }
 
   onSubmit(props) {
-    console.log("Submit: ", props)
     this.props.createPost(props)
       .then(() => {
         this.props.fetchPosts()

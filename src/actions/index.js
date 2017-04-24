@@ -15,9 +15,8 @@ export function fetchPosts() {
 }
 
 export function createPost(props) {
-  console.log(props)
   let currentId
-  if (store.getState().posts.all[0] == null) {
+  if (store.getState().posts.all[0] === null) {
     currentId = 1
   } else {
     currentId = store.getState().posts.all[0].id + 1
@@ -37,7 +36,6 @@ export function createPost(props) {
         post_id: currentId,
         url: props.url[i]
       }
-      console.log(image)
       imageRequests.push(axios.post(`${ROOT_URL}/images`, image))
     }
 

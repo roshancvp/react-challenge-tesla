@@ -40,12 +40,13 @@ input:focus {
 
 button {
   background-color: #FFFFFF;
+  font-family: 'Karla', sans-serif;
   color: #4990E2;
   border: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   outline: none;
 }
 

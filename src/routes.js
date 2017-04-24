@@ -7,6 +7,6 @@ import PostsView from './components/PostsView.jsx'
 
 export default (
   <Route path="/" component={AppView}>
-    <IndexRoute component={FormView} />
+    <IndexRoute components={{form: FormView, posts: PostsView}} />
   </Route>
 );

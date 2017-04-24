@@ -10,8 +10,8 @@ export default class App extends React.Component {
         <header>
           <img src={navLogo} id="header-logo" />
         </header>
-        {this.props.children}
-        <PostsView />
+        {this.props.form}
+        {this.props.posts}
       </div>
     )
   }
