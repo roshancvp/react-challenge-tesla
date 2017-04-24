@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react'
-import { reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import { Field, reduxForm } from 'redux-form'
 import { createPost, fetchPosts } from '../actions/index.js'
 import { Link } from 'react-router'
 
-let form = {
-  form: 'FormViewForm',
-  fields: ['title', 'description', 'url'],
-  validate
+
+console.log(createPost)
+
+const test = () => {
+  console.log("test passed!")
 }
 
 class FormView extends Component {
@@ -17,11 +19,21 @@ class FormView extends Component {
     this.state = { url_fields: 1}
   }
 
+  renderField({ input, placeholder, type, meta: { touched, error } }) {
+    return (
+      <div className={`form-group`}>
+        <input {...input} id="form-title" className="form-input" type="text" placeholder={placeholder} />
+        {touched && <span>{error}</span>}
+      </div>
+    )
+  }
+
   onSubmit(props) {
     this.props.createPost(props)
       .then(() => {
         this.props.fetchPosts()
       })
+    this.props.reset()
   }
 
   addURLField() {
@@ -56,29 +68,15 @@ class FormView extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { fields: { title, description, url}, handleSubmit } = this.props
 
     return (
       <form id="form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div id="form-heading">Create New Post</div>
-
-        <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-          <input id="form-title" className="form-input" type="text" placeholder="Title" {...title} />
-          <div className="text-help">
-            {title.touched ? title.error : ''}
-          </div>
-        </div>
-
-        <div className={`form-group ${description.touched && description.invalid ? 'has-danger' : ''}`}>
-          <input class="form-input" type="text" placeholder="Description" {...description} />
-          <div className="text-help">
-            {description.touched ? description.error : ''}
-          </div>
-        </div>
-
-        <a onClick={this.addURLField}>+</a>
-        {this.renderURLFields(url)}
-
+        <Field name="title" type="text" component={this.renderField} placeholder="Title" />
+        <Field name="description" type="text" component={this.renderField} placeholder="Description" />
+        <Field name="url" type="text" component={this.renderField} placeholder="Image URL" />
         <button type="submit" className="btn btn-primary">Post</button>
       </form>
     )
@@ -103,4 +101,16 @@ function validate(values) {
   return errors
 }
 
-export default reduxForm(form, null, { createPost, fetchPosts })(FormView)
+let form = {
+  form: 'FormViewForm',
+  validate
+}
+
+
+FormView = reduxForm({
+  form: 'FormViewForm',
+  fields: ['title', 'description', 'url'],
+  validate
+})(FormView)
+
+export default connect(null, { createPost, fetchPosts})(FormView)

@@ -4,7 +4,7 @@
 
 Installation
 ------------
-Create a [virtual](https://virtualenv.pypa.io/en/stable/) environment using virtualenv and install required python packages. Start the and Flask-RESTful server.
+Create a virtual environment using [virtualenv](https://virtualenv.pypa.io/en/stable/) and install required python packages. Start the and Flask-RESTful server.
 ```
 virtualenv venv
 source venv/bin/activate
