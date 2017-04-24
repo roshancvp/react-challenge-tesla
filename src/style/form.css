@@ -1,0 +1,45 @@
+/* Form */
+#form {
+  margin: 60px auto;
+  overflow: hidden;
+  max-width: 500px;
+  border: solid 1px #D8D8D8;
+  background: #FFFFFF;
+  padding: 15px;
+}
+
+#form-heading {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+#form-submit {
+  display: inline-block;
+  float: right;
+}
+
+input {
+  display: inline;
+  font-size: 18px;
+  font-family: 'Karla', sans-serif;
+  color: #727272;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-width: 1px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#form-title {
+  font-weight: 700;
+}
+
+#form-remove {
+  margin-left: 20px;
+}
+
+.form-danger {
+  color: #FF2727
+}

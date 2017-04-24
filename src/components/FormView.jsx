@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, FieldArray, reduxForm } from 'redux-form'
 import { createPost, fetchPosts } from '../actions/index.js'
-import { Link } from 'react-router'
+import formStyle from '../style/form.css'
 
 const formData = {
   form: 'FormViewForm',

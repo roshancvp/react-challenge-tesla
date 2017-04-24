@@ -5,23 +5,34 @@ import right from '../assets/right.svg'
 export default class PostView extends Component {
   constructor(props) {
     super(props)
-
+    console.log("ppp", props)
     this.state = { current_image: 0 }
 
     this.prevImage = this.prevImage.bind(this)
     this.nextImage = this.nextImage.bind(this)
-    this.manageNav = this.manageNav.bind(this)
+    this.renderImage = this.renderImage.bind(this)
+    this.renderNav = this.renderNav.bind(this)
   }
 
-  manageNav() {
-    if (this.props.post.images.length > 1) {
+  renderImage(images) {
+
+    if (images.length > 0) {
       return (
         <div>
-          <div className="post-nav-left" onClick={this.prevImage}><img className="post-icon clickable" src={left} /></div>
-          <div className="post-nav-right" onClick={this.nextImage}><img className="post-icon clickable" src={right} /></div>
+          <img className="post-img" src={images[this.state.current_image].url} />
+          { images.length > 1 ? this.renderNav() : ''}
         </div>
       )
     }
+  }
+
+  renderNav(){
+    return (
+      <div>
+        <div className="post-nav-left" onClick={this.prevImage}><img className="post-icon clickable" src={left} /></div>
+        <div className="post-nav-right" onClick={this.nextImage}><img className="post-icon clickable" src={right} /></div>
+      </div>
+    )
   }
 
   prevImage() {
@@ -41,14 +52,14 @@ export default class PostView extends Component {
   }
 
   render() {
+    const { images, title, description } = this.props.post
     return (
-      <div className="post hover">
+      <div className="post">
         <div className="image">
-          <img className="post-img" src={this.props.post.images[this.state.current_image].url} />
-          {this.manageNav()}
+          {this.renderImage(images)}
         </div>
-          <div className="post-title">{this.props.post.title}</div>
-          <div className="post-desc">{this.props.post.description}</div>
+          <div className="post-title">{title}</div>
+          <div className="post-desc">{description}</div>
       </div>
     )
   }

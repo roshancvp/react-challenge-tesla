@@ -1,6 +1,6 @@
 import React from 'react'
 import PostsView from './PostsView.jsx'
-import styles from '../style/style.css'
+import globalStyle from '../style/global.css'
 import navLogo from '../assets/nav-logo.svg'
 
 export default class App extends React.Component {

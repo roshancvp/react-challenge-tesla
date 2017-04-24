@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions/index.js'
 import PostView from './PostView.jsx'
+import postStyle from '../style/post.css'
 
 class PostsView extends Component {
   componentWillMount() {
