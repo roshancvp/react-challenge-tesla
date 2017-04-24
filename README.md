@@ -29,7 +29,7 @@ Architecture
 * **redux-promise:** Used it as middleware to resolve promises between data flow from actions to reducers.
 * **react-router:** Again, I wanted to make adding more components and services easier to the application. I started using react-router with the intent of navigating the user to a seperate page with a full screen view of the post's image when it is clicked. Due to time constraints, I haven't implemented it yet. 
 
-![alt text](http://i.imgur.com/Bap7UUd.png "Application Architecture Diagram")
+![alt text](http://i.imgur.com/vMqJ7ye.png "Application Architecture Diagram")
 
 Design
 ------------
