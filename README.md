@@ -1,6 +1,6 @@
 # react-challenge
 
-[![Build Status](https://travis-ci.org/roshancvp/react-challenge-tesla.svg?branch=master)](https://travis-ci.org/roshancvp/react-challenge-tesla)
+[![Build Status](https://travis-ci.com/roshancvp/react-challenge-tesla.svg?token=DzBp2wNpQSAVzWZNdfwR&branch=master)](https://travis-ci.com/roshancvp/react-challenge-tesla)
 
 Installation
 ------------
