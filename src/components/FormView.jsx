@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Field, reduxForm } from 'redux-form'
+import { Field, FieldArray, reduxForm } from 'redux-form'
 import { createPost, fetchPosts } from '../actions/index.js'
 import { Link } from 'react-router'
 
@@ -14,8 +14,7 @@ class FormView extends Component {
   constructor(props) {
     super(props)
 
-    this.addURLField = this.addURLField.bind(this)
-    this.state = { url_fields: 1}
+    this.renderURLFields = this.renderURLFields.bind(this)
   }
 
   renderField({ input, placeholder, id, type, meta: { touched, error } }) {
@@ -27,7 +26,33 @@ class FormView extends Component {
     )
   }
 
+  renderURLFields({ fields}) {
+    console.log(this)
+    return (
+      <ul>
+    <li>
+      <button type="button" onClick={() => fields.push()}>Add Hobby</button>
+    </li>
+    {fields.map((hobby, index) =>
+      <li key={index}>
+        <button
+          type="button"
+          title="Remove Hobby"
+          onClick={() => fields.remove(index)}>Remove</button>
+        <Field
+          name={hobby}
+          type="text"
+          component={this.renderField}
+          placeholder={`Hobby #${index + 1}`}/>
+      </li>
+    )}
+    {fields.error && <li className="error">{fields.error}</li>}
+  </ul>
+    )
+  }
+
   onSubmit(props) {
+    console.log("Submit: ", props)
     this.props.createPost(props)
       .then(() => {
         this.props.fetchPosts()
@@ -35,34 +60,9 @@ class FormView extends Component {
     this.props.reset()
   }
 
-  addURLField() {
-    this.setState({
-      url_fields: this.state.url_fields + 1
-    })
-    console.log(this.state)
-  }
 
-  subtractURLField() {
-    this.setState({
-      url_fields: this.state.url_fields - 1
-    })
-    console.log(this.state)
-  }
-
-  renderURLFields(url) {
-    let urlFields = []
-
-    for (let i = 0; i < this.state.url_fields; i++ ) {
-      urlFields.push(
-        <Field name="url" type="text" component={this.renderField} placeholder="Image URL" />
-      )
-    }
-
-    return urlFields
-  }
 
   render() {
-    console.log(this.props)
     const { fields: { title, description, url}, handleSubmit } = this.props
 
     return (
@@ -70,9 +70,8 @@ class FormView extends Component {
         <div id="form-heading">Create New Post</div>
         <Field name="title" id="form-title" type="text" component={this.renderField} placeholder="Title" />
         <Field name="description" type="text" component={this.renderField} placeholder="Description" />
-        {this.renderURLFields()}
-        <a onClick={this.addURLField}>Add Another Image</a>
-        <button type="submit" className="btn btn-primary">Post</button>
+        <FieldArray name="url" component={this.renderURLFields}/>
+        <button type="submit">Post</button>
       </form>
     )
   }
@@ -91,12 +90,6 @@ function validate(values) {
 
   return errors
 }
-
-let form = {
-  form: 'FormViewForm',
-  validate
-}
-
 
 FormView = reduxForm(formData)(FormView)
 
