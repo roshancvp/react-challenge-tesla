@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions/index.js'
 import PostView from './PostView.jsx'
+import postStyle from '../style/post.css'
 
 class PostsView extends Component {
   componentWillMount() {
@@ -10,7 +11,7 @@ class PostsView extends Component {
 
   renderPosts() {
     return this.props.posts.reverse().map((post) => {
-      return <PostView post={post} />
+      return <PostView post={post} key={post.id}/>
     })
   }
 

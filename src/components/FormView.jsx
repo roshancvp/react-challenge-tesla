@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Field, FieldArray, reduxForm } from 'redux-form'
 import { createPost, fetchPosts } from '../actions/index.js'
-import { Link } from 'react-router'
+import formStyle from '../style/form.css'
 
 const formData = {
   form: 'FormViewForm',
@@ -20,7 +20,7 @@ class FormView extends Component {
   renderField({ input, placeholder, id, type, meta: { touched, error } }) {
     return (
       <div className={`form-group`}>
-        {touched && <span>{error}</span>}
+        {touched && <span className="form-danger">{error}</span>}
         <input {...input} id={id} className="form-input" type="text" placeholder={placeholder} />
       </div>
     )
@@ -29,17 +29,17 @@ class FormView extends Component {
   renderURLFields({ fields }) {
     return (
       <div>
-        {fields.map((hobby, index) =>
+        {fields.map((url, index) =>
             <Field
               key={index}
-              name={hobby}
+              name={url}
               type="text"
               component={this.renderField}
               placeholder={`Image URL ${index + 1}`}/>
         )}
-        <button type="button" onClick={() => fields.push()}>+ Image</button>
+        <button className="clickable"  type="button" onClick={() => fields.push()}>+ Image</button>
         {fields.length > 0 ?
-          <button id="form-remove" type="button" title="Remove Hobby" onClick={() => fields.remove(fields.length - 1)}>- Image</button>
+          <button id="form-remove" className="clickable"  type="button" onClick={() => fields.remove(fields.length - 1)}>- Image</button>
           : '' }
         {fields.error && <li className="error">{fields.error}</li>}
       </div>
@@ -66,7 +66,7 @@ class FormView extends Component {
         <Field name="title" id="form-title" type="text" component={this.renderField} placeholder="Title" />
         <Field name="description" type="text" component={this.renderField} placeholder="Description" />
         <FieldArray name="url" component={this.renderURLFields}/>
-        <button id="form-submit" type="submit">Post</button>
+        <button className="clickable" id="form-submit" type="submit">Post</button>
       </form>
     )
   }
